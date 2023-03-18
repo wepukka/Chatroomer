@@ -1,0 +1,21 @@
+.messagesColumn {
+  height: 80vh;
+  overflow: auto;
+}
+
+.message {
+  max-width: 600px;
+  background: rgb(0, 24, 111);
+  border-radius: 6px;
+  margin-bottom: 24px;
+  padding: 12px;
+}
+
+.msgMeta {
+  color: rgb(153, 217, 234);
+  font-size: 0.75rem;
+}
+
+.msgText {
+  color: #fff;
+}
