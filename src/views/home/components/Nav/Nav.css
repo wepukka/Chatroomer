@@ -1,10 +1,36 @@
 .nav {
   display: flex;
-  align-items: center;
-
   flex-direction: column;
   height: 100%;
   width: 400px;
   padding: 0px 20px 0px 20px;
   border-right: 1px solid white;
+  gap: 20px;
+}
+
+.nav-username {
+  color: white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.nav-room-wrapper > button {
+  width: 100%;
+}
+
+.nav-room > * {
+  padding: 5px;
+  display: inline;
+}
+
+.usersList {
+  color: white;
+}
+.usersList p {
+  margin: 2px;
+  font-size: 20px;
+}
+
+.log-out {
+  margin-top: auto;
+  margin-bottom: 40px;
 }

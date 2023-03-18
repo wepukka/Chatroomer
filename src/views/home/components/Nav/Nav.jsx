@@ -26,12 +26,25 @@ const Nav = ({ socket, username, room, setRoom }) => {
   };
 
   return (
-    <div className="nav">
-      <h1 className="username">{username}</h1>
-      <h2 className="roomTitle">{room}</h2>
+    <div className="nav small-caps">
+      <h1 className="nav-username">{username}</h1>
+
+      {room !== "" ? (
+        <div className="nav-room-wrapper">
+          <div className="nav-room">
+            <p>Current room:</p>
+            <h2 className="roomTitle ">{room}</h2>
+          </div>
+          <button className="default-button" onClick={leaveRoom}>
+            Leave
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div>
-        {roomUsers.length > 0 && <h5 className="usersTitle">Users:</h5>}
+        {roomUsers.length > 0 && <h3 className="usersTitle">Users:</h3>}
         <ul className="usersList">
           {roomUsers.map((user) => (
             <li
@@ -40,19 +53,14 @@ const Nav = ({ socket, username, room, setRoom }) => {
               }}
               key={user.id}
             >
-              {user.username}
+              <p>{user.username}</p>
             </li>
           ))}
         </ul>
       </div>
-
-      {room !== "" ? (
-        <button className="btn btn-outline" onClick={leaveRoom}>
-          Leave
-        </button>
-      ) : (
-        <></>
-      )}
+      <button className="default-button log-out">
+        <p style={{ color: "black" }}>Log Out (No func)</p>
+      </button>
     </div>
   );
 };
