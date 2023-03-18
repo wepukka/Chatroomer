@@ -1,3 +1,36 @@
 body {
   margin: 0;
 }
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.default-button {
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid rgb(153, 217, 234);
+}

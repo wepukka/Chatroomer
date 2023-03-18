@@ -3,7 +3,7 @@
 import("./messages.css");
 import { useState, useEffect, useRef } from "react";
 
-const Messages = ({ socket }) => {
+const Messages = ({ socket, username }) => {
   const ref = useRef(null);
   const [messagesRecieved, setMessagesReceived] = useState([]);
 
@@ -57,7 +57,13 @@ const Messages = ({ socket }) => {
   return (
     <div className="messagesColumn" ref={ref}>
       {messagesRecieved.map((msg, i) => (
-        <div className="message" key={i}>
+        <div
+          className="message"
+          style={{
+            marginLeft: username !== msg.username ? "auto" : "none",
+          }}
+          key={i}
+        >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <span className="msgMeta">{msg.username}</span>
             <span className="msgMeta">
