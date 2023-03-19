@@ -1,6 +1,5 @@
 .App {
   height: 100vh;
   display: flex;
-  align-items: center;
   background: rgb(63, 73, 204);
 }
