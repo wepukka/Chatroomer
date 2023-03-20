@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import io from "socket.io-client";
 
+//
 import Home from "./views/home/index";
 import Chat from "./views/chat";
 import Nav from "./views/home/components/Nav/Nav";
@@ -12,6 +13,7 @@ const socket = io.connect("http://localhost:4000"); // -- our server will run on
 function App() {
   // Username will be changed to currently logged in user //
   const [username, setUsername] = useState("");
+  const [currentRoom, setCurrentRoom] = useState("");
   const [room, setRoom] = useState("");
 
   return (
@@ -21,7 +23,10 @@ function App() {
           socket={socket}
           room={room}
           username={username}
+          setUsername={setUsername}
           setRoom={setRoom}
+          currentRoom={currentRoom}
+          setCurrentRoom={setCurrentRoom}
         />
         <Routes>
           <Route

@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #0060c0;
+  --secondary-color: #1784c4;
+  --action-color: #ff9100;
+  --hover-color: #cacaca;
+}
+
 body {
   margin: 0;
 }
@@ -32,5 +39,5 @@ button:hover {
 .default-button {
   padding: 14px;
   border-radius: 6px;
-  border: 1px solid rgb(153, 217, 234);
+  border: 1px solid var(--secondary-color);
 }
