@@ -50,22 +50,22 @@ const Nav = ({ socket, username, setUsername, room, setRoom }) => {
       room: "express",
     },
     {
-      room: "express",
+      room: "test",
     },
     {
-      room: "express",
+      room: "test",
     },
     {
-      room: "express",
+      room: "test",
     },
     {
-      room: "express",
+      room: "test",
     },
     {
-      room: "express",
+      room: "test",
     },
     {
-      room: "express",
+      room: "test",
     },
   ];
 
@@ -83,8 +83,9 @@ const Nav = ({ socket, username, setUsername, room, setRoom }) => {
             <p>Current room:</p>
             <h2 className="roomTitle ">{room}</h2>
           </div>
+
           <button className="default-button" onClick={leaveRoom}>
-            Leave
+            Leave room
           </button>
         </div>
       ) : (
@@ -120,6 +121,14 @@ const Nav = ({ socket, username, setUsername, room, setRoom }) => {
                 {room.room}
               </div>
             ))}
+          </div>
+          <div className="nav-rooms-actions">
+            <button className="default-button ">
+              <p style={{ color: "black" }}>Join room (No func)</p>
+            </button>
+            <button className="default-button">
+              <p style={{ color: "black" }}>Create room (No func)</p>
+            </button>
           </div>
         </div>
       ) : null}
