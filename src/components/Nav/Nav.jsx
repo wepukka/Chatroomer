@@ -1,8 +1,16 @@
 import("./Nav.css");
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { socketJoinRoom, socketLeaveRoom } from "../../../socketUtils";
 
-const Nav = ({ socket, username, setUsername, room, setRoom }) => {
+const Nav = ({
+  socket,
+  username,
+  setUsername,
+  room,
+  setRoom,
+  setIsOpenModal,
+}) => {
   const navigate = useNavigate();
   const [roomUsers, setRoomUsers] = useState([]);
 
@@ -33,6 +41,10 @@ const Nav = ({ socket, username, setUsername, room, setRoom }) => {
     // Redirect to home page
     setRoom("");
     setRoomUsers([]);
+  };
+
+  const openModal = () => {
+    setIsOpenModal((prev) => !prev);
   };
 
   // TEST ROOMS  //
@@ -123,11 +135,8 @@ const Nav = ({ socket, username, setUsername, room, setRoom }) => {
             ))}
           </div>
           <div className="nav-rooms-actions">
-            <button className="default-button ">
-              <p style={{ color: "black" }}>Join room (No func)</p>
-            </button>
-            <button className="default-button">
-              <p style={{ color: "black" }}>Create room (No func)</p>
+            <button className="default-button" onClick={() => openModal()}>
+              <p style={{ color: "black" }}>Join room</p>
             </button>
           </div>
         </div>

@@ -1,10 +1,17 @@
 import("./Home.css");
-import { useNavigate } from "react-router-dom";
+import { CreateModal, JoinModal } from "./modals/Modals";
 
-const Home = ({ username, setUsername, room, setRoom, socket }) => {
-  const navigate = useNavigate();
-
-  return <div className="home-container">HOME</div>;
+const Home = ({ socket, isOpenModal, setIsOpenModal, setRoom }) => {
+  return (
+    <div className="home-container">
+      <CreateModal
+        socket={socket}
+        setRoom={setRoom}
+        isOpenModal={isOpenModal}
+        setIsOpenModal={setIsOpenModal}
+      />
+    </div>
+  );
 };
 
 export default Home;

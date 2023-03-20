@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import io from "socket.io-client";
 
@@ -13,8 +13,12 @@ const socket = io.connect("http://localhost:4000"); // -- our server will run on
 function App() {
   // Username will be changed to currently logged in user //
   const [username, setUsername] = useState("");
-  const [currentRoom, setCurrentRoom] = useState("");
   const [room, setRoom] = useState("");
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  useEffect(() => {
+    console.log("modal open: ", isOpenModal);
+  }, [isOpenModal]);
 
   return (
     <Router>
@@ -25,19 +29,17 @@ function App() {
           username={username}
           setUsername={setUsername}
           setRoom={setRoom}
-          currentRoom={currentRoom}
-          setCurrentRoom={setCurrentRoom}
+          setIsOpenModal={setIsOpenModal}
         />
         <Routes>
           <Route
             path="/"
             element={
               <Home
-                username={username}
-                setUsername={setUsername}
-                room={room}
-                setRoom={setRoom}
                 socket={socket}
+                isOpenModal={isOpenModal}
+                setIsOpenModal={setIsOpenModal}
+                setRoom={setRoom}
               />
             }
           />
