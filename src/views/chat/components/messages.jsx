@@ -57,21 +57,24 @@ const Messages = ({ socket, username }) => {
   return (
     <div className="messagesColumn" ref={ref}>
       {messagesRecieved.map((msg, i) => (
-        <div
-          className="message"
-          style={{
-            marginLeft: username !== msg.username ? "auto" : "none",
-          }}
-          key={i}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <span className="msgMeta">{msg.username}</span>
-            <span className="msgMeta">
-              {formatDateFromTimestamp(msg.__createdtime__)}
-            </span>
+        <div className="message-wrapper">
+          {username !== msg.username ? (
+            <div className="message-other-user-spacer"> </div>
+          ) : null}
+          <div
+            className={`message ${
+              username !== msg.username ? "message-other-user" : ""
+            }`}
+            key={i}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span className="msgMeta">{msg.username}</span>
+              <span className="msgMeta msgMeta-created-time">
+                {formatDateFromTimestamp(msg.__createdtime__)}
+              </span>
+            </div>
+            <p className="msgText">{msg.message}</p>
           </div>
-          <p className="msgText">{msg.message}</p>
-          <br />
         </div>
       ))}
     </div>

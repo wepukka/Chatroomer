@@ -26,7 +26,9 @@ export function CreateModal({ isOpenModal, setIsOpenModal, setRoom }) {
       >
         <Box className="modal-box">
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Join room
+            If room doesn't exist, it will be created.
+            <br />
+            <br /> Room name is case-sensitive
           </Typography>
           <input
             className="default-input"
