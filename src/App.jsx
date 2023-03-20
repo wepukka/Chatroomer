@@ -6,7 +6,7 @@ import io from "socket.io-client";
 //
 import Home from "./views/home/index";
 import Chat from "./views/chat";
-import Nav from "./views/home/components/Nav/Nav";
+import Nav from "./components/Nav/Nav";
 
 const socket = io.connect("http://localhost:4000"); // -- our server will run on port 4000, so we connect to it from here
 

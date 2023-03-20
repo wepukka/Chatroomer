@@ -13,8 +13,9 @@
   border-bottom: 1px solid rgb(255, 255, 255);
 }
 
-.nav-room-wrapper > button {
-  width: 100%;
+.nav-room-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-room > * {
@@ -63,6 +64,14 @@
 .usersList p {
   margin: 2px;
   font-size: 20px;
+}
+
+.nav-rooms-actions {
+  display: flex;
+}
+
+.nav-rooms-actions > button {
+  flex-grow: 1;
 }
 
 .log-out {
