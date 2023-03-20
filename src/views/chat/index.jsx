@@ -1,5 +1,4 @@
 import("./chat.css");
-
 import Messages from "./components/messages";
 import SendMessage from "./components/send-message";
 

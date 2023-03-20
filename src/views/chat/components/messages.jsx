@@ -1,11 +1,11 @@
-// client/src/pages/chat/messages.js
-
 import("./messages.css");
 import { useState, useEffect, useRef } from "react";
+import LoadingCircle from "../../../components/LoadingCircle/LoadingCircle";
 
 const Messages = ({ socket, username }) => {
   const ref = useRef(null);
   const [messagesRecieved, setMessagesReceived] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Last 1000 messages sent in the chat room (fetched from the db in backend)
@@ -20,6 +20,7 @@ const Messages = ({ socket, username }) => {
     return () => socket.off("last_1000_messages");
   }, [socket]);
 
+  // Sort messages
   function sortMessagesByDate(messages) {
     return messages.sort(
       (a, b) => parseInt(a.__createdtime__) - parseInt(b.__createdtime__)
@@ -44,14 +45,31 @@ const Messages = ({ socket, username }) => {
     return () => socket.off("receive_message");
   }, [socket]);
 
+  // Scroll to bottom when messages arrive, Currently not working with loading state //
+  /* 
   useEffect(() => {
     ref.current.scrollTop = ref.current.scrollHeight;
-  }, [messagesRecieved]);
+  }, [messagesRecieved]); */
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   // dd/mm/yyyy, hh:mm:ss
   function formatDateFromTimestamp(timestamp) {
     const date = new Date(timestamp);
     return date.toLocaleString();
+  }
+
+  if (loading) {
+    return (
+      <div className="messages-loading">
+        <LoadingCircle />
+      </div>
+    );
   }
 
   return (

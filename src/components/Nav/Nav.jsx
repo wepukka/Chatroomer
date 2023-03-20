@@ -1,7 +1,10 @@
 import("./Nav.css");
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { socketJoinRoom, socketLeaveRoom } from "../../../socketUtils";
+
+import CurrentRoom from "./components/CurrentRoom/CurrentRoom";
+import Rooms from "./components/rooms/Rooms";
+import Users from "./components/Users/Users";
 
 const Nav = ({
   socket,
@@ -23,8 +26,8 @@ const Nav = ({
     return () => socket.off("chatroom_users");
   }, [socket]);
 
-  // Join &
-  const joinRoom = () => {
+  // Joins & leaves rooms
+  const handleNav = () => {
     return room !== ""
       ? socket.emit("join_room", { username, room }) &&
           navigate("/chat", { replace: true })
@@ -32,7 +35,7 @@ const Nav = ({
   };
 
   useEffect(() => {
-    joinRoom();
+    handleNav();
   }, [room]);
 
   const leaveRoom = () => {
@@ -83,57 +86,12 @@ const Nav = ({
 
   return (
     <div className="nav small-caps">
-      <input
-        className="home-input"
-        placeholder="Username..."
-        onChange={(e) => setUsername(e.target.value)}
-      />
       <h1 className="nav-username">{username}</h1>
-      {room !== "" ? (
-        <div className="nav-room-wrapper">
-          <div className="nav-room">
-            <p>Current room:</p>
-            <h2 className="roomTitle ">{room}</h2>
-          </div>
-
-          <button className="default-button" onClick={leaveRoom}>
-            Leave room
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
-
-      <div>
-        {roomUsers.length > 0 && <h3 className="usersTitle">Users:</h3>}
-        <ul className="usersList">
-          {roomUsers.map((user) => (
-            <li
-              style={{
-                fontWeight: `${user.username === username ? "bold" : "normal"}`,
-              }}
-              key={user.id}
-            >
-              <p>{user.username}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <CurrentRoom room={room} leaveRoom={leaveRoom} />
+      <Users roomUsers={roomUsers} username={username} />
       {room === "" ? (
-        <div className="nav-rooms">
-          <p className="nav-rooms-title">Your rooms</p>
-          <div className="nav-select-room-wrapper">
-            {rooms.map((room, index) => (
-              <div
-                key={index}
-                id={room.room}
-                className="nav-select-room-join"
-                onClick={(e) => setRoom(e.target.id)}
-              >
-                {room.room}
-              </div>
-            ))}
-          </div>
+        <div className="nav-rooms-container">
+          <Rooms rooms={rooms} setRoom={setRoom} />
           <div className="nav-rooms-actions">
             <button className="default-button" onClick={() => openModal()}>
               <p style={{ color: "black" }}>Join room</p>
@@ -141,7 +99,12 @@ const Nav = ({
           </div>
         </div>
       ) : null}
-
+      {/* USERNAME INPUT ONLY FOR TESTING BEFORE AUTH PAGES */}
+      <input
+        className="home-input"
+        placeholder="Username..."
+        onChange={(e) => setUsername(e.target.value)}
+      />
       <button className="default-button log-out">
         <p style={{ color: "black" }}>Log Out (No func)</p>
       </button>
