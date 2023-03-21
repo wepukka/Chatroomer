@@ -1,21 +1,68 @@
 .messagesColumn {
-  height: 80vh;
+  height: 100%;
   overflow: auto;
 }
 
 .message {
+  position: relative;
   max-width: 600px;
-  background: rgb(0, 24, 111);
+  font-size: 20px;
+  background: var(--secondary-color);
+  border: 1px solid black;
   border-radius: 6px;
   margin-bottom: 24px;
-  padding: 12px;
+  padding: 10px;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.message-wrapper {
+  display: flex;
+}
+
+.message-other-user {
+  margin-left: auto;
+}
+
+.message-other-user-spacer {
+  width: 40px;
 }
 
 .msgMeta {
-  color: rgb(153, 217, 234);
-  font-size: 0.75rem;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
 }
 
 .msgText {
   color: #fff;
+}
+
+.messages-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+  .message {
+    padding: 2px 2px 2px 10px;
+  }
+  .message p {
+    margin-top: 5px;
+  }
+  .msgMeta {
+    font-size: 0.8rem;
+  }
+  .msgMeta-created-time {
+    color: rgb(0, 0, 0);
+    font-size: 0.8rem;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+  .msgText {
+    font-size: 1rem;
+  }
 }

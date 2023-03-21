@@ -1,0 +1,25 @@
+.modal-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  max-width: 300px;
+  padding: 10px 50px 100px 50px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.modal-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+@media only screen and (max-height: 550px) {
+  .modal-box {
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

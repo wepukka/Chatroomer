@@ -7,13 +7,6 @@
   margin: 0px 20px 0px 20px;
 }
 
-.home-input {
-  padding: 12px;
-  border-radius: 6px;
-  border: 2px solid rgb(0, 0, 0);
-  font-size: 0.9rem;
-}
-
 .home-container button {
   border-radius: 10px;
   width: 100%;
