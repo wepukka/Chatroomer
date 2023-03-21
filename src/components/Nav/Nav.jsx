@@ -1,15 +1,15 @@
 import("./Nav.css");
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { socketJoinRoom, socketLeaveRoom } from "../../../socketUtils";
+import { clearTokens } from "../../session/session";
 
 const Nav = ({
   socket,
   username,
-  setUsername,
   room,
   setRoom,
   setIsOpenModal,
+  setLoggedIn,
 }) => {
   const navigate = useNavigate();
   const [roomUsers, setRoomUsers] = useState([]);
@@ -45,6 +45,11 @@ const Nav = ({
 
   const openModal = () => {
     setIsOpenModal((prev) => !prev);
+  };
+
+  const logOut = () => {
+    clearTokens();
+    setLoggedIn(false);
   };
 
   // TEST ROOMS  //
@@ -83,11 +88,6 @@ const Nav = ({
 
   return (
     <div className="nav small-caps">
-      <input
-        className="home-input"
-        placeholder="Username..."
-        onChange={(e) => setUsername(e.target.value)}
-      />
       <h1 className="nav-username">{username}</h1>
       {room !== "" ? (
         <div className="nav-room-wrapper">
@@ -142,7 +142,12 @@ const Nav = ({
         </div>
       ) : null}
 
-      <button className="default-button log-out">
+      <button
+        className="default-button log-out"
+        onClick={() => {
+          logOut();
+        }}
+      >
         <p style={{ color: "black" }}>Log Out (No func)</p>
       </button>
     </div>
