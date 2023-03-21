@@ -7,7 +7,6 @@ import CurrentRoom from "./components/CurrentRoom/CurrentRoom";
 import Rooms from "./components/rooms/Rooms";
 import Users from "./components/Users/Users";
 
-
 const Nav = ({
   socket,
   username,
@@ -112,7 +111,7 @@ const Nav = ({
           logOut();
         }}
       >
-        <p style={{ color: "black" }}>Log Out (No func)</p>
+        <p style={{ color: "black" }}>Log Out</p>
       </button>
     </div>
   );

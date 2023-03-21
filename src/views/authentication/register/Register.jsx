@@ -30,6 +30,7 @@ export default function Register(props) {
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
+        type="password"
         value={password}
         placeholder="Password.."
         className="default-input"
