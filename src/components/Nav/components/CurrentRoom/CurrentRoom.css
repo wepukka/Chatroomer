@@ -1,0 +1,8 @@
+.nav-room > * {
+  padding: 5px;
+  display: inline;
+}
+
+.leave-room-button {
+  width: 100%;
+}
