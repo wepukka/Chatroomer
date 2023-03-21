@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import io from "socket.io-client";
 
 //
+import Authentication from "./views/authentication";
 import Home from "./views/home/index";
 import Chat from "./views/chat";
 import Nav from "./components/Nav/Nav";
@@ -12,7 +13,7 @@ const socket = io.connect("http://localhost:4000"); // -- our server will run on
 
 function App() {
   // Username will be changed to currently logged in user //
-  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
   const [room, setRoom] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -20,18 +21,37 @@ function App() {
     console.log("modal open: ", isOpenModal);
   }, [isOpenModal]);
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  if (!loggedIn)
+    return (
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Authentication setLoggedIn={setLoggedIn} setUser={setUser} />
+              }
+            />
+          </Routes>
+        </div>
+      </Router>
+    );
+
   return (
     <Router>
       <div className="App">
         <Nav
           socket={socket}
           room={room}
-          username={username}
-          setUsername={setUsername}
+          username={user}
           setRoom={setRoom}
           setIsOpenModal={setIsOpenModal}
+          setLoggedIn={setLoggedIn}
         />
         <Routes>
+          <Route path="/auth" element={<Authentication />} />
           <Route
             path="/"
             element={
@@ -45,7 +65,7 @@ function App() {
           />
           <Route
             path="/chat"
-            element={<Chat username={username} room={room} socket={socket} />}
+            element={<Chat username={user} room={room} socket={socket} />}
           />
         </Routes>
       </div>

@@ -2,17 +2,19 @@ import("./Nav.css");
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { clearTokens } from "../../session/session";
 import CurrentRoom from "./components/CurrentRoom/CurrentRoom";
 import Rooms from "./components/rooms/Rooms";
 import Users from "./components/Users/Users";
 
+
 const Nav = ({
   socket,
   username,
-  setUsername,
   room,
   setRoom,
   setIsOpenModal,
+  setLoggedIn,
 }) => {
   const navigate = useNavigate();
   const [roomUsers, setRoomUsers] = useState([]);
@@ -48,6 +50,11 @@ const Nav = ({
 
   const openModal = () => {
     setIsOpenModal((prev) => !prev);
+  };
+
+  const logOut = () => {
+    clearTokens();
+    setLoggedIn(false);
   };
 
   // TEST ROOMS  //
@@ -99,13 +106,12 @@ const Nav = ({
           </div>
         </div>
       ) : null}
-      {/* USERNAME INPUT ONLY FOR TESTING BEFORE AUTH PAGES */}
-      <input
-        className="home-input"
-        placeholder="Username..."
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button className="default-button log-out">
+      <button
+        className="default-button log-out"
+        onClick={() => {
+          logOut();
+        }}
+      >
         <p style={{ color: "black" }}>Log Out (No func)</p>
       </button>
     </div>
