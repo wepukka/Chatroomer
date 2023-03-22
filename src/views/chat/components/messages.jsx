@@ -100,3 +100,25 @@ const Messages = ({ socket, username }) => {
 };
 
 export default Messages;
+
+// One way to check for links //
+/* const checkForLinks = (message) => {
+    let subStrings = message.split(" ");
+
+    if (message.includes("[link]")) {
+      return (
+        <p className="msgText">
+          {subStrings.map((subString) => {
+            if (subString.includes("[link]")) {
+              let link = subString.replace("[link]", "");
+              return <a href={link}>{link}</a>;
+            } else {
+              return subString + " ";
+            }
+          })}
+        </p>
+      );
+    }
+
+    return <p className="msgText">{message}</p>;
+  }; */

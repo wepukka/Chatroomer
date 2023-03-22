@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addAccessToken } from "../session/session";
+import { addAccessToken, getAccessToken } from "../session/session";
 const API_URL = "http://localhost:4000/api/auth";
 
 export async function apiLogin(username, password) {
@@ -32,6 +32,23 @@ export async function apiRegister(username, password) {
       console.log("Access token added");
     }
 
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function authenticate() {
+  try {
+    const token = getAccessToken();
+
+    const response = await axios({
+      method: "post",
+      url: `${API_URL}/authenticate`,
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
     return response.data;
   } catch (err) {
     console.log(err);
