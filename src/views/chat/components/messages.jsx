@@ -77,7 +77,7 @@ const Messages = ({ socket, username }) => {
       {messagesRecieved.map((msg, i) => (
         <div className="message-wrapper">
           {username !== msg.username ? (
-            <div className="message-other-user-spacer"> </div>
+            <div key={`spacer${i}`} className="message-other-user-spacer"></div>
           ) : null}
           <div
             className={`message ${

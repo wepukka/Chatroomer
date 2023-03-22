@@ -34,6 +34,12 @@ function App() {
                 <Authentication setLoggedIn={setLoggedIn} setUser={setUser} />
               }
             />
+            <Route
+              path="*"
+              element={
+                <Authentication setLoggedIn={setLoggedIn} setUser={setUser} />
+              }
+            />
           </Routes>
         </div>
       </Router>

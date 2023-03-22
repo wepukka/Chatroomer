@@ -15,8 +15,20 @@
   border-bottom: 1px solid rgb(255, 255, 255);
 }
 
+.nav-rooms-loading-wrapper {
+  position: absolute;
+  top: -50px;
+  left: 45%;
+  display: flex;
+  justify-content: center;
+}
+
 .nav-rooms-actions button {
   width: 100%;
+}
+
+.nav-rooms-container {
+  position: relative;
 }
 
 .log-out {

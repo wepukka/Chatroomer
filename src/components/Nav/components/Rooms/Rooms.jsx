@@ -1,18 +1,32 @@
 import("./Rooms.css");
 
-export default function Rooms({ rooms, setRoom }) {
+export default function Rooms({
+  userRooms,
+  setRoom,
+  isDeleting,
+  selectRoomsToDelete,
+}) {
   return (
     <div className="nav-rooms">
       <p className="nav-rooms-title">Your rooms</p>
       <div className="nav-select-room-wrapper">
-        {rooms.map((room, index) => (
+        {userRooms.map((room, index) => (
           <div
             key={index}
-            id={room.room}
-            className="nav-select-room-join"
-            onClick={(e) => setRoom(e.target.id)}
+            id={room}
+            className={`nav-select-room ${
+              !isDeleting ? "nav-select-room-join" : "nav-select-room-delete"
+            }`}
+            onClick={
+              (e) =>
+                !isDeleting
+                  ? setRoom(e.target.id)
+                  : selectRoomsToDelete(
+                      e.target.id
+                    ) /* deleteUserRoom(e.target.id) */
+            }
           >
-            {room.room}
+            {room}
           </div>
         ))}
       </div>
