@@ -4,7 +4,7 @@ const isLoggedIn = () => {
   return Boolean(hasAccessToken());
 };
 
-const hasAccessToken = () => {
+const getAccessToken = () => {
   return Cookies.get("accessToken");
 };
 
@@ -16,4 +16,4 @@ const addAccessToken = (token) => {
   Cookies.set("accessToken", token, { secure: true, expires: 1 });
 };
 
-export { hasAccessToken, isLoggedIn, clearTokens, addAccessToken };
+export { getAccessToken, isLoggedIn, clearTokens, addAccessToken };

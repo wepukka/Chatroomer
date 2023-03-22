@@ -8,6 +8,7 @@ import Authentication from "./views/authentication";
 import Home from "./views/home/index";
 import Chat from "./views/chat";
 import Nav from "./components/Nav/Nav";
+import { authenticate } from "./api/auth";
 
 const socket = io.connect("http://localhost:4000"); // -- our server will run on port 4000, so we connect to it from here
 
@@ -20,6 +21,22 @@ function App() {
   useEffect(() => {
     console.log("modal open: ", isOpenModal);
   }, [isOpenModal]);
+
+  const checkAuthentication = async () => {
+    let response = await authenticate();
+
+    if (response.success) {
+      setUser(response.payload.user.username);
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+      setUser("");
+    }
+  };
+
+  useEffect(() => {
+    checkAuthentication();
+  }, []);
 
   const [loggedIn, setLoggedIn] = useState(false);
 
