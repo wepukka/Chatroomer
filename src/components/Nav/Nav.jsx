@@ -55,18 +55,6 @@ const Nav = ({
     }
   };
 
-  // Select rooms to delete //
-  const selectRoomsToDelete = (roomId) => {
-    const elem = document.getElementById(roomId);
-    if (selectedRooms.includes(roomId)) {
-      elem.style.backgroundColor = "#1784c4";
-      setSelectedRooms((current) => current.filter((room) => room !== roomId));
-    } else {
-      elem.style.backgroundColor = "red";
-      setSelectedRooms((oldArray) => [...oldArray, roomId]);
-    }
-  };
-
   // Delete rooms
   const handleRoomDelete = async () => {
     if (isDeleting && selectedRooms.length !== 0) {
@@ -79,12 +67,14 @@ const Nav = ({
       await apiUpdateUserRooms(username, newRooms);
       // Fetch updated rooms
       let response = await apiGetUserRooms(username);
+      console.log(response.payload.rooms);
 
       setUserRooms(response.payload.rooms);
       setSelectedRooms([]);
 
       setIsLoading(false);
     }
+
     setIsDeleting((prev) => !prev);
   };
 
@@ -154,7 +144,7 @@ const Nav = ({
             setRoom={setRoom}
             isDeleting={isDeleting}
             selectedRooms={selectedRooms}
-            selectRoomsToDelete={selectRoomsToDelete}
+            setSelectedRooms={setSelectedRooms}
           />
 
           <div className="nav-rooms-actions">
