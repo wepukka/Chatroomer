@@ -1,5 +1,4 @@
 import("./HomeInfo.css");
-import Footer from "../../../../components/Footer/Footer";
 
 export default function HomeInfo() {
   return (
@@ -27,9 +26,6 @@ export default function HomeInfo() {
             messages are saved.
           </p>
         </div>
-      </div>
-      <div className="footer-wrapper">
-        <Footer />
       </div>
     </div>
   );

@@ -31,7 +31,7 @@
 .msgMeta-container {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 20px;
 }
 
 .msgMeta {
@@ -70,6 +70,6 @@
   }
   .msgText {
     font-size: 1rem;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 }

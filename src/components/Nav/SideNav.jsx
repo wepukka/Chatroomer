@@ -1,9 +1,10 @@
-import("./Nav.css");
+import("./SideNav.css");
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { clearTokens } from "../../session/session";
 import LoadingCircle from "../LoadingCircle/LoadingCircle";
+import MenuIcon from "@mui/icons-material/Menu";
 
 // Api
 import { apiGetUserRooms, apiUpdateUserRooms } from "../../api/data";
@@ -13,13 +14,15 @@ import CurrentRoom from "./components/CurrentRoom/CurrentRoom";
 import Rooms from "./components/Rooms/Rooms";
 import Users from "./components/Users/Users";
 
-const Nav = ({
+const SideNav = ({
   socket,
   username,
   room,
   setRoom,
   setIsOpenModal,
   setLoggedIn,
+  sideNavIsExpanded,
+  setSideIsNavExpanded,
 }) => {
   const navigate = useNavigate();
   const [roomUsers, setRoomUsers] = useState([]);
@@ -82,6 +85,7 @@ const Nav = ({
     if (room !== "") {
       addUserRoom(room);
       socket.emit("join_room", { username, room });
+      setSideIsNavExpanded(true);
       navigate("/chat", { replace: true });
     } else {
       navigate("/", { replace: true });
@@ -127,7 +131,19 @@ const Nav = ({
   }, []);
 
   return (
-    <div className="nav small-caps">
+    <div
+      className={`nav nav-mobile small-caps ${
+        sideNavIsExpanded ? "nav-is-closed" : ""
+      }`}
+    >
+      <button
+        className="toggle-nav"
+        onClick={() => {
+          setSideIsNavExpanded((prev) => !prev);
+        }}
+      >
+        <MenuIcon className="side-nav-icon" />
+      </button>
       <h1 className="nav-username">{username}</h1>
       <CurrentRoom room={room} leaveRoom={leaveRoom} />
       <Users roomUsers={roomUsers} username={username} />
@@ -172,4 +188,4 @@ const Nav = ({
   );
 };
 
-export default Nav;
+export default SideNav;

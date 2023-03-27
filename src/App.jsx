@@ -7,8 +7,9 @@ import io from "socket.io-client";
 import Authentication from "./views/authentication";
 import Home from "./views/home/index.jsx";
 import Chat from "./views/chat";
-import Nav from "./components/Nav/Nav";
+import SideNav from "./components/Nav/SideNav";
 import { authenticate } from "./api/auth";
+import TopNav from "./components/TopNav/TopNav";
 
 const socket = io.connect("http://localhost:4000"); // -- our server will run on port 4000, so we connect to it from here
 
@@ -17,6 +18,7 @@ function App() {
   const [user, setUser] = useState("");
   const [room, setRoom] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [sideNavIsExpanded, setSideNavIsExpanded] = useState(false);
 
   useEffect(() => {
     console.log("modal open: ", isOpenModal);
@@ -65,32 +67,38 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav
+        <SideNav
           socket={socket}
           room={room}
           username={user}
           setRoom={setRoom}
           setIsOpenModal={setIsOpenModal}
           setLoggedIn={setLoggedIn}
+          sideNavIsExpanded={sideNavIsExpanded}
+          setSideIsNavExpanded={setSideNavIsExpanded}
         />
-        <Routes>
-          <Route path="/auth" element={<Authentication />} />
-          <Route
-            path="/"
-            element={
-              <Home
-                socket={socket}
-                isOpenModal={isOpenModal}
-                setIsOpenModal={setIsOpenModal}
-                setRoom={setRoom}
-              />
-            }
-          />
-          <Route
-            path="/chat"
-            element={<Chat username={user} room={room} socket={socket} />}
-          />
-        </Routes>
+
+        <div className="container-right">
+          <TopNav setSideNavExpanded={setSideNavIsExpanded} />
+          <Routes>
+            <Route path="/auth" element={<Authentication />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  socket={socket}
+                  isOpenModal={isOpenModal}
+                  setIsOpenModal={setIsOpenModal}
+                  setRoom={setRoom}
+                />
+              }
+            />
+            <Route
+              path="/chat"
+              element={<Chat username={user} room={room} socket={socket} />}
+            />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

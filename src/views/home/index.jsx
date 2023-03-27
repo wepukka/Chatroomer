@@ -2,7 +2,6 @@ import("./Home.css");
 import { CreateModal, JoinModal } from "./components/modals/Modals";
 import { useEffect } from "react";
 import HomeInfo from "./components/HomeInfo/HomeInfo";
-import Footer from "../../components/Footer/Footer";
 
 const Home = ({ socket, isOpenModal, setIsOpenModal, setRoom }) => {
   useEffect(() => {
