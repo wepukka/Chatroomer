@@ -75,7 +75,7 @@ function App() {
           setIsOpenModal={setIsOpenModal}
           setLoggedIn={setLoggedIn}
           sideNavIsExpanded={sideNavIsExpanded}
-          setSideIsNavExpanded={setSideNavIsExpanded}
+          setSideNavIsExpanded={setSideNavIsExpanded}
         />
 
         <div className="container-right">

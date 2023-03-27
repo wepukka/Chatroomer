@@ -3,15 +3,12 @@
   flex-direction: column;
   height: 100%;
   width: 400px;
-  padding: 0px 50px 0px 20px;
+  padding: 0px 20px 0px 20px;
   border-right: 1px solid white;
   background-color: var(--primary-color);
   z-index: 99;
   overflow-y: auto;
-}
-
-.nav-hidden {
-  display: none;
+  overflow-x: hidden;
 }
 
 .nav-username {
@@ -26,6 +23,7 @@
 }
 
 .nav-rooms-actions button {
+  display: block;
   width: 100%;
   margin-top: 10px;
 }
@@ -37,10 +35,6 @@
 .log-out {
   margin-top: auto;
   margin-bottom: 50px;
-}
-
-.nav-is-closed {
-  display: none;
 }
 
 .toggle-nav {
@@ -60,13 +54,15 @@
 
 @media only screen and (max-width: 700px) {
   .nav {
+    display: none;
     position: absolute;
     width: 100%;
     padding: 0;
-
     border: none;
   }
-
+  .nav-expanded {
+    display: flex;
+  }
   .toggle-nav {
     display: block;
   }

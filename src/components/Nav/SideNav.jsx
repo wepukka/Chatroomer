@@ -22,7 +22,7 @@ const SideNav = ({
   setIsOpenModal,
   setLoggedIn,
   sideNavIsExpanded,
-  setSideIsNavExpanded,
+  setSideNavIsExpanded,
 }) => {
   const navigate = useNavigate();
   const [roomUsers, setRoomUsers] = useState([]);
@@ -85,8 +85,8 @@ const SideNav = ({
     if (room !== "") {
       addUserRoom(room);
       socket.emit("join_room", { username, room });
-      setSideIsNavExpanded(true);
       navigate("/chat", { replace: true });
+      setSideNavIsExpanded(false);
     } else {
       navigate("/", { replace: true });
     }
@@ -132,14 +132,12 @@ const SideNav = ({
 
   return (
     <div
-      className={`nav nav-mobile small-caps ${
-        sideNavIsExpanded ? "nav-is-closed" : ""
-      }`}
+      className={`nav small-caps ${sideNavIsExpanded ? "nav-expanded" : ""}`}
     >
       <button
         className="toggle-nav"
         onClick={() => {
-          setSideIsNavExpanded((prev) => !prev);
+          setSideNavIsExpanded((prev) => !prev);
         }}
       >
         <MenuIcon className="side-nav-icon" />
