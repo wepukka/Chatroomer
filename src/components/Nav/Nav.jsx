@@ -10,7 +10,7 @@ import { apiGetUserRooms, apiUpdateUserRooms } from "../../api/data";
 
 // Child components //
 import CurrentRoom from "./components/CurrentRoom/CurrentRoom";
-import Rooms from "./components/rooms/Rooms";
+import Rooms from "./components/Rooms/Rooms";
 import Users from "./components/Users/Users";
 
 const Nav = ({
@@ -31,7 +31,6 @@ const Nav = ({
   // Current room users
   useEffect(() => {
     socket.on("chatroom_users", (data) => {
-      console.log(data);
       setRoomUsers(data);
     });
 
@@ -149,15 +148,13 @@ const Nav = ({
 
           <div className="nav-rooms-actions">
             <button className="default-button" onClick={() => openModal()}>
-              <p style={{ color: "black" }}>Join room</p>
+              <p>Join rooms</p>
             </button>
             <button
               className="default-button"
               onClick={() => handleRoomDelete()}
             >
-              <p style={{ color: "black" }}>
-                {isDeleting ? "Stop removing" : "Remove rooms"}
-              </p>
+              <p>{isDeleting ? "Stop removing" : "Remove rooms"}</p>
             </button>
           </div>
         </div>
@@ -169,7 +166,7 @@ const Nav = ({
           logOut();
         }}
       >
-        <p style={{ color: "black" }}>Log Out</p>
+        <p>Log Out</p>
       </button>
     </div>
   );

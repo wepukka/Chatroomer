@@ -5,7 +5,7 @@ import io from "socket.io-client";
 
 //
 import Authentication from "./views/authentication";
-import Home from "./views/home/index";
+import Home from "./views/home/index.jsx";
 import Chat from "./views/chat";
 import Nav from "./components/Nav/Nav";
 import { authenticate } from "./api/auth";

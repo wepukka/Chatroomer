@@ -37,7 +37,7 @@ export default function Login(props) {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button className="default-button" onClick={() => login()}>
-        Login
+        <p>Login</p>
       </button>
     </div>
   );

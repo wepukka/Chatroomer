@@ -37,7 +37,7 @@ export default function Register(props) {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button className="default-button" onClick={() => register()}>
-        Register
+        <p>Register</p>
       </button>
     </div>
   );

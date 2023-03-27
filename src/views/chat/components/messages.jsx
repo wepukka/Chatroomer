@@ -85,7 +85,7 @@ const Messages = ({ socket, username }) => {
             }`}
             key={i}
           >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className="msgMeta-container">
               <span className="msgMeta">{msg.username}</span>
               <span className="msgMeta msgMeta-created-time">
                 {formatDateFromTimestamp(msg.__createdtime__)}
