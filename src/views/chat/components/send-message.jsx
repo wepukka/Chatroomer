@@ -1,5 +1,6 @@
 import("./send-message.css");
 import React, { useState } from "react";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 const SendMessage = ({ socket, username, room }) => {
   const [message, setMessage] = useState("");
@@ -21,8 +22,11 @@ const SendMessage = ({ socket, username, room }) => {
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
-      <button className="default-button" onClick={sendMessage}>
-        Send Message
+      <button
+        className="default-button send-message-button"
+        onClick={sendMessage}
+      >
+        <SendRoundedIcon sx={{ color: "white" }} />
       </button>
     </div>
   );

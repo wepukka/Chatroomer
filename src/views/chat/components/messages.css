@@ -28,6 +28,12 @@
   width: 40px;
 }
 
+.msgMeta-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .msgMeta {
   color: rgb(0, 0, 0);
   font-size: 1.2rem;
@@ -64,5 +70,6 @@
   }
   .msgText {
     font-size: 1rem;
+    padding-bottom: 10px;
   }
 }
