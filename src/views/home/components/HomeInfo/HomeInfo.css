@@ -8,8 +8,7 @@
   gap: 20px;
   overflow-y: auto;
   height: inherit;
-  /*   border-right: 1px solid var(--primary-color);
-  border-bottom: 1px solid var(--primary-color); */
+  overflow-x: hidden;
 }
 
 .title-container {
@@ -39,6 +38,12 @@
 
 .footer-wrapper {
   width: 100%;
+  margin-top: auto;
+}
+
+.chatroomer-img {
+  min-width: 200px;
+  min-height: 200px;
   margin-top: auto;
 }
 

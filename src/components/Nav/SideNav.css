@@ -1,4 +1,4 @@
-.nav {
+.side-nav {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -11,24 +11,24 @@
   overflow-x: hidden;
 }
 
-.nav-username {
+.side-nav-username {
   text-align: center;
   color: white;
   border-bottom: 1px solid rgb(255, 255, 255);
 }
 
-.nav-rooms-loading-wrapper {
+.side-nav-rooms-loading-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.nav-rooms-actions button {
+.side-nav-rooms-actions button {
   display: block;
   width: 100%;
   margin-top: 10px;
 }
 
-.nav-rooms-actions {
+.side-nav-rooms-actions {
   margin-bottom: 20px;
 }
 
@@ -53,14 +53,14 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .nav {
+  .side-nav {
     display: none;
     position: absolute;
     width: 100%;
     padding: 0;
     border: none;
   }
-  .nav-expanded {
+  .side-nav-expanded {
     display: flex;
   }
   .toggle-nav {
