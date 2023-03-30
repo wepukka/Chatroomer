@@ -6,7 +6,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 export default function TopNav({ setSideNavExpanded }) {
   return (
     <div className="top-nav">
-      <p style={{ marginLeft: "auto" }}>Friendlies 2023</p>
+      <p style={{ marginLeft: "auto" }}>Chatroomer 2023</p>
       <a href="https://github.com/wepukka/Friendlies">
         <GitHubIcon className="top-nav-icon" />
       </a>

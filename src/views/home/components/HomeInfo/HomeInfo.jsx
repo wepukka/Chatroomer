@@ -1,10 +1,11 @@
 import("./HomeInfo.css");
+import chatroomer from "../../../../assets/chatroomer.png";
 
 export default function HomeInfo() {
   return (
     <div className="home-info">
       <div className="title-container">
-        <h1 className="title-container-title">Friendlies</h1>
+        <h1 className="title-container-title">Chatroomer</h1>
         <p className="title-container-paragraph">
           Free & Easy to use chat app. Were focused on making chatting easy and
           pleasent experience.
@@ -27,6 +28,7 @@ export default function HomeInfo() {
           </p>
         </div>
       </div>
+      <img src={chatroomer} alt="chatroomer" className="chatroomer-img "></img>
     </div>
   );
 }

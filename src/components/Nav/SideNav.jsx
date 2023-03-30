@@ -59,6 +59,10 @@ const SideNav = ({
 
   // Delete rooms
   const handleRoomDelete = async () => {
+    if (userRooms.length === 0) {
+      return alert("No rooms to remove.");
+    }
+
     if (isDeleting && selectedRooms.length !== 0) {
       // New array where selected rooms are removed from user rooms
       let newRooms = userRooms.filter((room) => !selectedRooms.includes(room));
@@ -132,7 +136,9 @@ const SideNav = ({
 
   return (
     <div
-      className={`nav small-caps ${sideNavIsExpanded ? "nav-expanded" : ""}`}
+      className={`side-nav small-caps ${
+        sideNavIsExpanded ? "side-nav-expanded" : ""
+      }`}
     >
       <button
         className="toggle-nav"
@@ -142,13 +148,13 @@ const SideNav = ({
       >
         <MenuIcon className="side-nav-icon" />
       </button>
-      <h1 className="nav-username">{username}</h1>
+      <h1 className="side-nav-username">{username}</h1>
       <CurrentRoom room={room} leaveRoom={leaveRoom} />
       <Users roomUsers={roomUsers} username={username} />
       {room === "" ? (
-        <div className="nav-rooms-container">
+        <div className="side-nav-rooms-container">
           {isLoading && (
-            <div className="nav-rooms-loading-wrapper">
+            <div className="side-nav-rooms-loading-wrapper">
               <LoadingCircle />
             </div>
           )}
@@ -160,7 +166,7 @@ const SideNav = ({
             setSelectedRooms={setSelectedRooms}
           />
 
-          <div className="nav-rooms-actions">
+          <div className="side-nav-rooms-actions">
             <button className="default-button" onClick={() => openModal()}>
               <p>Join rooms</p>
             </button>
