@@ -1,10 +1,9 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:4000/api/data";
+import { BACKEND_URL } from "../assets/constants";
 
 export async function apiGetUserRooms(username) {
   try {
-    const response = await axios.get(`${API_URL}/rooms/${username}`);
+    const response = await axios.get(`${BACKEND_URL}/data/rooms/${username}`);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -13,7 +12,7 @@ export async function apiGetUserRooms(username) {
 
 export async function apiUpdateUserRooms(username, rooms) {
   try {
-    const response = await axios.post(`${API_URL}/rooms/add`, {
+    const response = await axios.post(`${BACKEND_URL}/data/rooms/add`, {
       user: username,
       rooms: rooms,
     });

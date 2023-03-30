@@ -45,11 +45,12 @@ const Messages = ({ socket, username }) => {
     return () => socket.off("receive_message");
   }, [socket]);
 
-  // Scroll to bottom when messages arrive, Currently not working with loading state //
-  /* 
-  useEffect(() => {
+  // Scroll to bottom when messages arrive, Currently not working with loading state.
+  // NOTE. Add button to scroll onClick ?
+  /*  useEffect(() => {
     ref.current.scrollTop = ref.current.scrollHeight;
-  }, [messagesRecieved]); */
+  }, [messagesRecieved]);
+ */
 
   useEffect(() => {
     setLoading(true);
@@ -100,25 +101,3 @@ const Messages = ({ socket, username }) => {
 };
 
 export default Messages;
-
-// One way to check for links //
-/* const checkForLinks = (message) => {
-    let subStrings = message.split(" ");
-
-    if (message.includes("[link]")) {
-      return (
-        <p className="msgText">
-          {subStrings.map((subString) => {
-            if (subString.includes("[link]")) {
-              let link = subString.replace("[link]", "");
-              return <a href={link}>{link}</a>;
-            } else {
-              return subString + " ";
-            }
-          })}
-        </p>
-      );
-    }
-
-    return <p className="msgText">{message}</p>;
-  }; */

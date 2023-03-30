@@ -24,12 +24,14 @@ export default function Register(props) {
     <div className="register">
       <h1>Register</h1>
       <input
+        id="register-username"
         value={username}
         placeholder="Username.."
         className="default-input"
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
+        id="register-password"
         type="password"
         value={password}
         placeholder="Password.."

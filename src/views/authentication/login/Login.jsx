@@ -24,12 +24,14 @@ export default function Login(props) {
     <div className="login">
       <h1>Login</h1>
       <input
+        id="login-username"
         value={username}
         placeholder="Username.."
         className="default-input"
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
+        id="login-password"
         type="password"
         value={password}
         placeholder="Password.."

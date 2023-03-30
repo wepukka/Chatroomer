@@ -1,17 +1,16 @@
 import axios from "axios";
 import { addAccessToken, getAccessToken } from "../session/session";
-const API_URL = "http://localhost:4000/api/auth";
+import { BACKEND_URL } from "../assets/constants";
 
 export async function apiLogin(username, password) {
   try {
-    const response = await axios.post(`${API_URL}/login`, {
+    const response = await axios.post(`${BACKEND_URL}/auth/login`, {
       user: username,
       password: password,
     });
 
     if (response.data.success === true) {
       addAccessToken(response.data.payload.token);
-      console.log("Access token added");
     }
 
     return response.data;
@@ -22,14 +21,13 @@ export async function apiLogin(username, password) {
 
 export async function apiRegister(username, password) {
   try {
-    const response = await axios.post(`${API_URL}/register`, {
+    const response = await axios.post(`${BACKEND_URL}/auth/register`, {
       user: username,
       password: password,
     });
 
     if (response.data.success === true) {
       addAccessToken(response.data.payload.token);
-      console.log("Access token added");
     }
 
     return response.data;
@@ -44,7 +42,7 @@ export async function authenticate() {
 
     const response = await axios({
       method: "post",
-      url: `${API_URL}/authenticate`,
+      url: `${BACKEND_URL}/auth/authenticate`,
       headers: {
         Authorization: "Bearer " + token,
       },
