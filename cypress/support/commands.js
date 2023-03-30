@@ -24,10 +24,23 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-// VISIT PAGE //
-Cypress.Commands.add("connect", () => {
-  cy.visit("http://localhost:5173/");
-  Cypress.on("uncaught:exception", (err, runnable) => {
-    return false;
-  });
+Cypress.Commands.add("login", (username, password) => {
+  cy.get("#login-username").type(username);
+  cy.get("#login-password").type(password);
+  cy.get("button").click();
+});
+
+//
+Cypress.Commands.add("register", (username, password) => {
+  cy.get(".auth-member").click();
+  cy.get("#register-username").type(username);
+  cy.get("#register-password").type(password);
+  cy.get("button").click();
+});
+
+// Successful login with test user //
+Cypress.Commands.add("slogin", () => {
+  cy.get("#login-username").type(Cypress.env("test_user"));
+  cy.get("#login-password").type(Cypress.env("test_password"));
+  cy.get("button").click();
 });

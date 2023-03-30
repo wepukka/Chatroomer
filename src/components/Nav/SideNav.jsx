@@ -167,10 +167,15 @@ const SideNav = ({
           />
 
           <div className="side-nav-rooms-actions">
-            <button className="default-button" onClick={() => openModal()}>
+            <button
+              id="join-room-button"
+              className="default-button"
+              onClick={() => openModal()}
+            >
               <p>Join rooms</p>
             </button>
             <button
+              id="delete-room-button"
               className="default-button"
               onClick={() => handleRoomDelete()}
             >

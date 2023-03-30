@@ -35,6 +35,7 @@ export function CreateModal({ isOpenModal, setIsOpenModal, setRoom }) {
             <br /> Room name is case-sensitive
           </p>
           <input
+            id="modal-input"
             className="default-input"
             placeholder="Room name..."
             value={newRoom}

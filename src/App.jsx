@@ -20,10 +20,6 @@ function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [sideNavIsExpanded, setSideNavIsExpanded] = useState(false);
 
-  useEffect(() => {
-    console.log("modal open: ", isOpenModal);
-  }, [isOpenModal]);
-
   const checkAuthentication = async () => {
     let response = await authenticate();
 
@@ -47,12 +43,6 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Authentication setLoggedIn={setLoggedIn} setUser={setUser} />
-              }
-            />
             <Route
               path="*"
               element={
