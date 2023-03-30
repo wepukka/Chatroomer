@@ -3,7 +3,7 @@ import("./TopNav.css");
 import MenuIcon from "@mui/icons-material/Menu";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-export default function TopNav({ setSideNavExpanded }) {
+export default function TopNav({ setSideNavIsExpanded }) {
   return (
     <div className="top-nav">
       <p style={{ marginLeft: "auto" }}>Chatroomer 2023</p>
@@ -13,7 +13,7 @@ export default function TopNav({ setSideNavExpanded }) {
       <button
         className="toggle-side-nav"
         onClick={() => {
-          setSideNavExpanded((prev) => !prev);
+          setSideNavIsExpanded((prev) => !prev);
         }}
       >
         <MenuIcon className="top-nav-icon" />

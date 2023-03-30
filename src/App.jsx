@@ -69,7 +69,7 @@ function App() {
         />
 
         <div className="container-right">
-          <TopNav setSideNavExpanded={setSideNavIsExpanded} />
+          <TopNav setSideNavIsExpanded={setSideNavIsExpanded} />
           <Routes>
             <Route
               path="/"
