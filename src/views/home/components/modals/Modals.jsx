@@ -37,6 +37,7 @@ export function CreateModal({ isOpenModal, setIsOpenModal, setRoom }) {
           <input
             className="default-input"
             placeholder="Room name..."
+            value={newRoom}
             onChange={(e) => setNewRoom(e.target.value)}
           />
           <p className="modal-error">{errorMsg}</p>

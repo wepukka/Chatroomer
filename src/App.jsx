@@ -81,7 +81,6 @@ function App() {
         <div className="container-right">
           <TopNav setSideNavExpanded={setSideNavIsExpanded} />
           <Routes>
-            <Route path="/auth" element={<Authentication />} />
             <Route
               path="/"
               element={
