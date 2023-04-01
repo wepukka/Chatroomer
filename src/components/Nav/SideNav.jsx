@@ -148,7 +148,7 @@ const SideNav = ({
       >
         <MenuIcon className="side-nav-icon" />
       </button>
-      <h1 className="side-nav-username">{username}</h1>
+      <h1 id="username">{username}</h1>
       <CurrentRoom room={room} leaveRoom={leaveRoom} />
       <Users roomUsers={roomUsers} username={username} />
       {room === "" ? (

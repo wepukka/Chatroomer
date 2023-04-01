@@ -17,7 +17,7 @@ body {
   );
 }
 
-/* Default text styles */
+/* Default font styles */
 h1 {
   font-size: 35px;
 }
@@ -85,6 +85,7 @@ p {
   border-radius: 10px;
 }
 
+/* Media font sizes */
 @media only screen and (max-width: 700px) {
   h1 {
     font-size: 25px;

@@ -35,14 +35,12 @@ describe("authentication", () => {
         expect(cookies[0]).to.have.property("name", "accessToken");
       });
 
-    // Should have these top classes //
-    cy.get(".side-nav");
-    cy.get(".container-right");
-    cy.get(".top-nav");
-    cy.get(".home");
+    // Username should be same that we logged in with //
+    cy.get("#username").should("contain", Cypress.env("test_user"));
 
     cy.get(".log-out").click();
 
+    // Logout removes cookies
     cy.getCookies().should("have.length", 0);
   });
 });
