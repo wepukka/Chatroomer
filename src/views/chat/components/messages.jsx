@@ -45,11 +45,12 @@ const Messages = ({ socket, username }) => {
     return () => socket.off("receive_message");
   }, [socket]);
 
-  // Scroll to bottom when messages arrive, Currently not working with loading state //
-  /* 
-  useEffect(() => {
+  // Scroll to bottom when messages arrive, Currently not working with loading state.
+  // NOTE. Add button to scroll onClick ?
+  /*  useEffect(() => {
     ref.current.scrollTop = ref.current.scrollHeight;
-  }, [messagesRecieved]); */
+  }, [messagesRecieved]);
+ */
 
   useEffect(() => {
     setLoading(true);
@@ -77,7 +78,7 @@ const Messages = ({ socket, username }) => {
       {messagesRecieved.map((msg, i) => (
         <div className="message-wrapper">
           {username !== msg.username ? (
-            <div className="message-other-user-spacer"> </div>
+            <div key={`spacer${i}`} className="message-other-user-spacer"></div>
           ) : null}
           <div
             className={`message ${
@@ -85,7 +86,7 @@ const Messages = ({ socket, username }) => {
             }`}
             key={i}
           >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className="msgMeta-container">
               <span className="msgMeta">{msg.username}</span>
               <span className="msgMeta msgMeta-created-time">
                 {formatDateFromTimestamp(msg.__createdtime__)}

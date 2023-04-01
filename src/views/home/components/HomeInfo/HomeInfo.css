@@ -1,0 +1,56 @@
+.home-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 20px 0px 30px 0px;
+  gap: 20px;
+  overflow-y: auto;
+  height: inherit;
+  overflow-x: hidden;
+}
+
+.title-container {
+  width: 100%;
+  text-align: center;
+}
+
+.info-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.info {
+  max-width: 600px;
+  border-top: 1px solid black;
+  margin-bottom: auto;
+  padding: 10px;
+}
+
+.info p {
+  text-align: left;
+}
+
+.footer-wrapper {
+  width: 100%;
+  margin-top: auto;
+}
+
+.chatroomer-img {
+  min-width: 200px;
+  min-height: 200px;
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  .info-container {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 700px) {
+}

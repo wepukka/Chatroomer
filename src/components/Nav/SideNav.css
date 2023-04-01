@@ -1,0 +1,68 @@
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 400px;
+  padding: 0px 20px 0px 20px;
+  border-right: 1px solid white;
+  background-color: var(--primary-color);
+  z-index: 99;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#username {
+  text-align: center;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.side-nav-rooms-loading-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.side-nav-rooms-actions button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.side-nav-rooms-actions {
+  margin-bottom: 20px;
+}
+
+.log-out {
+  margin-top: auto;
+  margin-bottom: 50px;
+}
+
+.toggle-nav {
+  background: none;
+  display: none;
+  min-height: 60px;
+  background-color: var(--secondary-color);
+}
+
+.toggle-nav:hover {
+  cursor: pointer;
+}
+
+.side-nav-icon {
+  color: white;
+}
+
+@media only screen and (max-width: 700px) {
+  .side-nav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    border: none;
+  }
+  .side-nav-expanded {
+    display: flex;
+  }
+  .toggle-nav {
+    display: block;
+  }
+}

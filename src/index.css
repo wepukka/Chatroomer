@@ -1,16 +1,23 @@
 :root {
+  /* Color theme */
   --primary-color: #003057;
   --secondary-color: #1784c4;
   --action-color: #ff9100;
   --hover-color: #cacaca;
+
+  font-family: "Lato", sans-serif;
 }
 
 body {
   margin: 0;
-
-  background: var(--primary-color);
+  background-image: linear-gradient(
+    to top left,
+    var(--secondary-color),
+    var(--primary-color)
+  );
 }
 
+/* Default font styles */
 h1 {
   font-size: 35px;
 }
@@ -30,20 +37,29 @@ p {
   color: white;
 }
 
-button:hover {
-  cursor: pointer;
+p {
+  font-size: 20px;
 }
 
 .small-caps {
   font-variant: small-caps;
 }
 
+/* Default button style */
 .default-button {
-  padding: 14px;
+  padding: 5px;
   border-radius: 6px;
-  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
+  border: 3px solid var(--secondary-color);
+  font-variant: small-caps;
 }
 
+.default-button:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+
+/* default input style */
 .default-input {
   padding: 12px;
   border-radius: 6px;
@@ -51,6 +67,7 @@ button:hover {
   font-size: 0.9rem;
 }
 
+/* SCROLL BAR */
 ::-webkit-scrollbar-track {
   border: 1px solid #000;
   border-radius: 10px;
@@ -66,4 +83,35 @@ button:hover {
   background-color: var(--action-color);
   border: 1px solid #000;
   border-radius: 10px;
+}
+
+/* Media font sizes */
+@media only screen and (max-width: 700px) {
+  h1 {
+    font-size: 25px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 17px;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 15px;
+  }
+  h3 {
+    font-size: 13px;
+  }
+  p {
+    font-size: 12px;
+  }
 }

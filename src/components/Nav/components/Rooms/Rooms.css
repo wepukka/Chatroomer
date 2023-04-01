@@ -19,16 +19,37 @@
   overflow-y: scroll;
 }
 
-.nav-select-room-join {
+.nav-select-room {
   margin-right: 5px;
   background-color: var(--secondary-color);
-  border: 1px solid white;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 5px;
-  padding-left: 10px;
-  font-size: 30px;
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+}
+.nav-select-room p {
+  margin: 0;
 }
 
-.nav-select-room-join:hover {
+.nav-select-room-join {
+  border-color: white;
+}
+
+.nav-select-room-delete {
+  border-color: red;
+}
+
+.nav-select-room:hover {
   cursor: pointer;
   background-color: var(--hover-color);
+}
+
+.nav-select-room-delete:hover {
+  background-color: rgb(192, 110, 110);
+}
+
+.room-delete-selected {
+  background-color: red;
 }

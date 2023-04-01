@@ -4,14 +4,18 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { borderColor } from "@mui/system";
 
 export function CreateModal({ isOpenModal, setIsOpenModal, setRoom }) {
-  const handleOpen = () => setIsOpenModal(true);
-  const handleClose = () => setIsOpenModal(false);
-
-  const [newRoom, setNewRoom] = useState();
+  const handleClose = () => setIsOpenModal(false) & setErrorMsg("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [newRoom, setNewRoom] = useState("");
 
   const moveToRoom = () => {
+    if (newRoom === "" || newRoom === undefined) {
+      return setErrorMsg("Please insert room name.");
+    }
+
     setRoom(newRoom);
     setIsOpenModal(false);
   };
@@ -25,22 +29,24 @@ export function CreateModal({ isOpenModal, setIsOpenModal, setRoom }) {
         aria-describedby="modal-modal-description"
       >
         <Box className="modal-box">
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <p>
             If room doesn't exist, it will be created.
             <br />
             <br /> Room name is case-sensitive
-          </Typography>
+          </p>
           <input
+            id="modal-input"
             className="default-input"
             placeholder="Room name..."
+            value={newRoom}
             onChange={(e) => setNewRoom(e.target.value)}
           />
+          <p className="modal-error">{errorMsg}</p>
           <button
             className="default-button modal-button"
-            style={{ display: "block" }}
             onClick={() => moveToRoom()}
           >
-            Join room
+            <p>Join room</p>
           </button>
         </Box>
       </Modal>

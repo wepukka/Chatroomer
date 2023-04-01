@@ -9,9 +9,8 @@ export default function CurrentRoom({ room, leaveRoom }) {
         <p>Current room:</p>
         <h2 className="roomTitle ">{room}</h2>
       </div>
-
       <button className="default-button leave-room-button" onClick={leaveRoom}>
-        Leave room
+        <p>Leave room</p>
       </button>
     </div>
   );
