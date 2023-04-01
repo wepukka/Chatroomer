@@ -44,3 +44,10 @@ describe("Room functionalities", () => {
     cy.get("#cypress-test-room").should("not.exist");
   });
 });
+
+describe("Room functionalities", () => {
+  it("Joins room, inspects room, leaves room, deletes room", () => {
+    cy.visit("");
+    cy.slogin();
+  });
+});
