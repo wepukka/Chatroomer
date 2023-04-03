@@ -14,6 +14,7 @@ Also tests for mobile view to see if everything works correctly when viewport is
 
 ## Scalablity
 
+
 Scaling tests done with chrome device toolbar, works properly. Haven't tested with real mobile device so topbar in mobile phones might cause some issues.
 
 # Backend
@@ -34,7 +35,7 @@ Routes to handle user and other data changes in database.
 
     - Join & Delete rooms. Each user have their own rooms they have connected.
     - Chat..
-
+    
 # About
 
 This project was made purely as a learning exercise and is not published anywhere.
@@ -50,5 +51,4 @@ Desktop                    |  Mobile
                            
                            
                            
-                           
-
+     

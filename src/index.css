@@ -6,6 +6,7 @@
   --hover-color: #cacaca;
 
   font-family: "Lato", sans-serif;
+  font-size: 17px;
 }
 
 body {
@@ -19,15 +20,15 @@ body {
 
 /* Default font styles */
 h1 {
-  font-size: 35px;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 1.8rem;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 1.6rem;
 }
 
 h1,
@@ -38,7 +39,7 @@ p {
 }
 
 p {
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 .small-caps {
@@ -51,6 +52,7 @@ p {
   border-radius: 6px;
   background-color: var(--primary-color);
   border: 3px solid var(--secondary-color);
+
   font-variant: small-caps;
 }
 
@@ -88,30 +90,30 @@ p {
 /* Media font sizes */
 @media only screen and (max-width: 700px) {
   h1 {
-    font-size: 25px;
+    font-size: 1.5rem;
   }
   h2 {
-    font-size: 20px;
+    font-size: 1.3rem;
   }
   h3 {
-    font-size: 17px;
+    font-size: 1.1rem;
   }
   p {
-    font-size: 15px;
+    font-size: 1rem;
   }
 }
 
 @media only screen and (max-width: 400px) {
   h1 {
-    font-size: 20px;
+    font-size: 1.4rem;
   }
   h2 {
-    font-size: 15px;
+    font-size: 1.2rem;
   }
   h3 {
-    font-size: 13px;
+    font-size: 1rem;
   }
   p {
-    font-size: 12px;
+    font-size: 0.9rem;
   }
 }

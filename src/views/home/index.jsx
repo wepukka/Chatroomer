@@ -13,6 +13,8 @@ const Home = ({ socket, isOpenModal, setIsOpenModal, setRoom }) => {
   return (
     <div className="home">
       <div className="home-container">
+        <div id="border-right"></div>
+        <div id="border-bottom"></div>
         <HomeInfo />
         <CreateModal
           socket={socket}
