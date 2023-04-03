@@ -14,7 +14,7 @@
 }
 
 .top-nav-icon {
-  border-radius: 30px;
+  border-radius: 25px;
   height: 50px;
   width: 50px;
   color: white;
@@ -22,6 +22,8 @@
 
 .top-nav-icon:hover {
   cursor: pointer;
+  box-shadow: inset 0px 10px 20px 1px rgba(255, 255, 255, 1),
+    0 0 10px 5px rgba(255, 255, 255, 0.5);
 }
 
 .toggle-side-nav {
