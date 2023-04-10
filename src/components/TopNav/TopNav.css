@@ -18,12 +18,14 @@
   height: 50px;
   width: 50px;
   color: white;
+  rotate: -10deg;
+  transition: all 0.2s;
 }
 
 .top-nav-icon:hover {
   cursor: pointer;
-  box-shadow: inset 0px 10px 20px 1px rgba(255, 255, 255, 1),
-    0 0 10px 5px rgba(255, 255, 255, 0.5);
+  rotate: 0deg;
+  transform: scale(1.1);
 }
 
 .toggle-side-nav {

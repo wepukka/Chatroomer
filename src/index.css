@@ -52,12 +52,12 @@ p {
   border-radius: 6px;
   background-color: var(--primary-color);
   border: 3px solid var(--secondary-color);
-
   font-variant: small-caps;
+  transition: all 0.2s;
 }
 
 .default-button:hover {
-  background-color: var(--hover-color);
+  box-shadow: inset 0px 0px 0px 2px white;
   cursor: pointer;
 }
 
