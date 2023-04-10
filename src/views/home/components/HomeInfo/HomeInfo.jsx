@@ -3,7 +3,7 @@ import chatroomer from "../../../../assets/chatroomer.png";
 
 export default function HomeInfo() {
   return (
-    <div className="home-info">
+    <div className="home-info small-caps">
       <div className="title-container">
         <h1 className="title-container-title">Chatroomer</h1>
         <p className="title-container-paragraph">
