@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import Authentication from "./views/authentication";
 import Home from "./views/home/index.jsx";
 import Chat from "./views/chat";
-import SideNav from "./components/Nav/SideNav";
+import SideNav from "./components/SideNav/SideNav";
 import { authenticate } from "./api/auth";
 import TopNav from "./components/TopNav/TopNav";
 
